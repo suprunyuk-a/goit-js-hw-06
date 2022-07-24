@@ -6,4 +6,3 @@ for (let i = 0; i < categoryMass.length; i++) {
     console.log("Category: " + list.innerHTML);
     console.log("Elements: " + categoryMass[i].lastElementChild.querySelectorAll('li').length);
 }
-
