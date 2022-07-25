@@ -8,7 +8,15 @@ const handleKeyPress = (event) => {
   nameUser = nameUser + event.key;
   elemValue.innerHTML = nameUser;
   } else {
-    event.key === 'Backspace' ? nameUser = nameUser.substring(0,nameUser.length-1) : nameUser = nameUser;
+
+    if (event.key === 'Backspace') {
+          nameUser = nameUser.substring(0,elem.selectionStart-1) + nameUser.substring(elem.selectionStart,elem.length);
+          elemValue.innerHTML = nameUser;
+    }
+    if (event.key === 'Delete') {
+        nameUser = nameUser.substring(0,elem.selectionStart) + nameUser.substring(elem.selectionStart+1,elem.length);
+        elemValue.innerHTML = nameUser;
+  }
     nameUser.length<1 ? elemValue.innerHTML = "Anonymous" : elemValue.innerHTML = nameUser;
   }
 };
