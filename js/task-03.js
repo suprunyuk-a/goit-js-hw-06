@@ -36,11 +36,5 @@ const images = [
 ];
 
 const elem = document.querySelector(".gallery");
-for (let i = 0; i < images.length; i++) {
-  elem.insertAdjacentHTML(
-    "beforeend",
-    `<li class="gallery__item" > <img  class="item-img" src=${images[i].url} alt=${images[i].alt}> `
-  );
-}
-
-//! Модернизировать добавление одной операцией, а не в цикле.
+const elemMass = (images.map(index => `<li class="gallery__item" > <img  class="item-img" src=${index.url} alt=${index.alt}> </li>`).join(""));
+elem.insertAdjacentHTML("beforeend",elemMass);

@@ -20,12 +20,13 @@
 const elemSubmit = document.querySelector(".login-form");
 const userData = {};
 
-console.log(elemSubmit.elements);
+//console.log(elemSubmit.elements);
 
 const handleSubmit = (event) => {
   event.preventDefault();
   if (!elemSubmit.elements.email.value || !elemSubmit.elements.password.value) {
     alert("Email or Password is empty!");
+    return false;
   }
 
   userData[elemSubmit.elements.email.name] = elemSubmit.elements.email.value;
@@ -36,5 +37,3 @@ const handleSubmit = (event) => {
   elemSubmit.reset();
 };
 elemSubmit.addEventListener("submit", handleSubmit);
-
-//! После alert происходит отправка, и очищается заполненное поле, что не правильно.
