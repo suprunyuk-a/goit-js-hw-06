@@ -6,10 +6,9 @@
 
 const elem = document.querySelector("#font-size-control");
 const elemSpan = document.querySelector("#text");
+elemSpan.style.fontSize = elem.value + "px";
 
 const handleSlider = (event) => {
   elemSpan.style.fontSize = elem.value + "px";
 };
 elem.addEventListener("input", handleSlider);
-
-//! Размер текста изначально неверно задан.
